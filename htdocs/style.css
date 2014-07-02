@@ -1,0 +1,15 @@
+body{
+	background-image:url("/Media/Untitled.png");
+	}
+	
+#maindiv{
+	width:800px; margin:0 auto;
+}
+
+#logo{
+	width:20%;
+	margin:20px auto;
+	text-align:right;
+	vertical-align:right;
+	float:right;
+}

@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>My first HTML file</title>
+	<meta enctype="UTF-8">
+</head>
+
+<body>
+	<div id='cssmenu'>
+	<ul>
+		<li class='active'><a href='index.html'><span>Home</span></a></li>
+		<li class='has-sub'><a href='#'><span>Stuff</span></a>
+			<ul>
+				<li><a href='videos.html'><span>Videos</span></a></li>
+			</ul>
+		</li>
+		<li><a href='about.html'><span>About</span></a></li>
+		<li class='last'><a href='#'><span>Contact</span></a></li>
+	</ul>
+	</div>
+	<br/>
+	<div id="logo">
+		<img src="http://www.epam.com/etc/designs/epam/images/components/logo/logo20.svg"/>
+	</div>
+	<div id="maindiv">
+		<h1>Arvíztűrő Tükörfúrógép!</h1>
+		<p id="content">TO BE FILLED</p>
+		<button onclick="fill()">Load Text</button>
+	</div>
+
+</body>
+<link href="/cssmenu/menu_source/styles.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type='text/javascript' src='/cssmenu/menu_source/menu_jquery.js'></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="myscript.js"></script>
+</html>

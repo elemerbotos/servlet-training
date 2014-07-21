@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xsi:schemaLocation="http://java.sun.com/xml/ns/javaee web-jsptaglibrary_2_1.xsd"
+    xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <uri>myBeautifulTags</uri>
+
+    <short-name>My custom tags</short-name>
+    
+    <tag>
+        <description>forEach tag</description>
+        <name>forEach</name>
+        <tag-class>com.epam.jjp.tldlibs.ForEachTLD</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>items</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

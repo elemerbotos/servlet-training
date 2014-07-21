@@ -1,0 +1,92 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url("resources/starjedi/Starjedi.ttf");
+}
+
+body{
+	background: white;
+	background-attachment: fixed;
+	background-image: url("resources/medai/background.jpg");
+	background-size: contain;
+	font-family: myFirstFont;
+	color:yellow;
+ 	
+}
+
+#maindiv {
+	
+}
+
+.page-header{
+	align-content:center; 
+}
+
+#headerDiv{
+	width:100%;
+}
+
+#title{
+	font-size: 30px;
+	text-align: center;
+}
+
+.noMargin{
+	background: url('/resources/medai/stars.jpg');
+	margin: 0px 0px 0px 0px;
+}
+
+.noMargin h1{
+	margin: 0px 0px 0px 0px;
+	height: 10%;
+	font-weight: 800;
+	align: center;
+	vertical-align: center;
+}
+
+.startButton{
+	border-color: gray;
+	border-width: thin;
+	 
+	position: fixed;
+    top: 20%;
+    right: 10%;
+    
+    font-size: 24px;
+    
+    background-color: black;
+  
+}
+
+#tableHeader1 {
+	background-color: gray;
+	
+}
+
+#darkBg {
+	text-shadow: 2px 2px #000000;
+	maring-left: 1cm;
+}
+
+#setPaddingToLarger {
+	padding: 15px;	
+}
+
+#defendersWon, #attackersWon {
+	border-color: gray;
+	border-width: thin;
+	 
+	position: fixed;
+    top: 20%;
+    right: 10%;
+    
+    font-size: 24px;
+ 
+    background-color: black;
+}
+
+#battleReport {
+	font-weight: 100;
+	margin: 10px;
+	line-height: 20px;
+	font-size: 12px;
+}

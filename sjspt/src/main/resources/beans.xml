@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	                       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<bean id="trooper" class="com.epam.jjp.sc.domain.Trooper" scope="prototype" 
+		c:_0="MrTrooper"
+		c:_1="OTHER"
+		p:weapon-ref="commonBlaster" 
+		p:messages-ref="messageSource"/>
+
+	<bean id="army" class="com.epam.jjp.sc.domain.Army" scope="prototype" 
+		p:messages-ref="messageSource"/>
+	
+	<bean id="commonBlaster" class="com.epam.jjp.sc.factory.BlasterFactoryBean"
+		scope="singleton" 
+		c:_0="30" 
+		c:_1-ref="messageSource" />
+
+	<bean id="commonSabre" class="com.epam.jjp.sc.factory.LightSabreFactoryBean"
+		scope="singleton" 
+		c:_0="30" 
+		c:_1-ref="messageSource" />
+
+	<bean id="lukeSkywalker" class="com.epam.jjp.sc.domain.Jedi" 
+		c:_0="Luke Skywalker"
+		c:_1="MALE" 
+		p:lightSabre-ref="commonSabre" 
+		p:messages-ref="messageSource"/>
+
+	<bean id="anakinSkywalker" class="com.epam.jjp.sc.domain.Jedi" 
+		c:_0="Anakin Skywalker"
+		c:_1="MALE" 
+		p:lightSabre-ref="commonSabre" 
+		p:messages-ref="messageSource"/>
+
+	<bean id="aniko" class="com.epam.jjp.sc.domain.Jedi" 
+		c:_0="Aniko Jedi"
+		c:_1="FEMALE" 
+		p:lightSabre-ref="commonSabre" 
+		p:messages-ref="messageSource"/>
+		
+	<bean id="darthSidious" class="com.epam.jjp.sc.domain.Sith" 
+		c:_0="Darth Sidious"
+		c:_1="MALE" 
+		p:lightSabre-ref="commonSabre" 
+		p:messages-ref="messageSource"/>
+
+	<bean id="darthVader" class="com.epam.jjp.sc.domain.Sith" 
+		c:_0="Darth Vader"
+		c:_1="MALE" 
+		p:lightSabre-ref="commonSabre" 
+		p:messages-ref="messageSource"/>
+
+	<util:list id="jedis">
+		<ref bean="lukeSkywalker" />
+		<ref bean="anakinSkywalker" />
+		<ref bean="aniko" />
+	</util:list>
+
+	<util:list id="siths">
+		<ref bean="darthSidious" />
+		<ref bean="darthVader" />
+	</util:list>
+	
+	<util:list id="bothArmies">
+		<ref bean="defendingArmy" />
+		<ref bean="attackingArmy" />
+	</util:list>
+	
+	<util:constant id="attacker" static-field="com.epam.jjp.sc.domain.TypeOfSoldier.ATTACKER"/>
+	<util:constant id="defender" static-field="com.epam.jjp.sc.domain.TypeOfSoldier.DEFENDER"/>
+	
+	<bean id="defendingArmy" class="com.epam.jjp.sc.domain.Army"
+		p:jedis-ref="jedis"
+		p:messages-ref="messageSource" >
+		<property name="soldiers">
+			<map>
+				<entry key-ref="defender" value-ref="trooperList"/>
+				<entry key-ref="attacker" value-ref="trooperList"/>
+			</map>
+		</property>
+	</bean>
+	
+	<util:list id="trooperList" scope="prototype">
+		<ref bean="trooper"/>
+		<ref bean="trooper"/>
+		<ref bean="trooper"/>
+		<ref bean="trooper"/>
+		<ref bean="trooper"/>
+	</util:list>
+
+	<bean id="attackingArmy" class="com.epam.jjp.sc.domain.Army"
+		p:jedis-ref="siths"
+		p:messages-ref="messageSource">
+		<property name="soldiers">
+			<map>
+				<entry key-ref="defender" value-ref="trooperList"/>
+				<entry key-ref="attacker" value-ref="trooperList"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="theBattle" class="com.epam.jjp.sc.domain.BattleOfEndor"
+		c:_0="Battle Of Endor" 
+		c:_1-ref="theBattlefield" 
+		p:messages-ref="messageSource" 
+		scope="prototype"/>
+
+	<bean id="theBattlefield" class="com.epam.jjp.sc.domain.Battlefield" 
+		c:_0="Battlefield of Endor" 
+		c:_1-ref="bothArmies" 
+		p:messages-ref="messageSource" />
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="local\\messages"/>
+</beans>
